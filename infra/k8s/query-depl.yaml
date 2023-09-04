@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: query-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: query
+  template:
+    metadata:
+      labels:
+        app: query
+    spec:
+      containers:
+      - name: query
+        image: kodega2016/query
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 4003
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: query-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: query
+  ports:
+  - name: query
+    protocol: TCP
+    port: 4003
+    targetPort: 4003
