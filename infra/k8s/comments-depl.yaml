@@ -15,10 +15,6 @@ spec:
       containers:
       - name: comments
         image: kodega2016/comments
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 4001
 ---

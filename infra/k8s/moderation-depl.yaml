@@ -15,10 +15,6 @@ spec:
       containers:
       - name: moderation
         image: kodega2016/moderation
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 4003
 ---

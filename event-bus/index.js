@@ -21,7 +21,7 @@ app.post("/events", (req, res) => {
   const { type, data } = req.body;
   console.log(`event received: ${type}`);
 
-  axios.post("http://post-cluster-ip-service:4000/events", req.body).catch((err) => {
+  axios.post("http://posts-cluster-ip-service:4000/events", req.body).catch((err) => {
     console.log(err.message);
   });
   axios.post("http://comments-cluster-ip-service:4001/events", req.body).catch((err) => {

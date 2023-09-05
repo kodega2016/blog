@@ -7,7 +7,6 @@ spec:
   selector:
     app: posts
   ports:
-  - name: posts-node-port
-    port: 3050
+  - port: 4000
     targetPort: 4000
     nodePort: 31515
